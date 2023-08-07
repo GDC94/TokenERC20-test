@@ -8,10 +8,13 @@ contract("test token.js", (accounts) => {
     TokenERC20 = await Token.new("German", "GMN", "18", "10000");
   });
 
-  describe("constructor testing", async () => {
-    it("The name of token should be equals to 'German'", async () => {
-        const res = TokenERC20.name();
-        expect(res).to.not.equal('german')
+
+
+  describe("Testing on transfer method", async () => {
+    it("prueba en el metodo transfer", async () => {
+        const res = await TokenERC20.transfer(accountOne, '5000', {from: owner});
+        const res2 = await TokenERC20.balanceOf(owner);
+        expect(res2).to.equal(5000);
     });
   });
 });

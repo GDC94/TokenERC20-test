@@ -35,7 +35,7 @@ interface IERC20 {
     ) external view returns (uint256 remaining);
 }
 
-contract ERC20 {
+contract ERC20 is IERC20 {
     string private _name;
     string private _symbol;
     uint8 private _decimals;
