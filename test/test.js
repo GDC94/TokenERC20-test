@@ -80,8 +80,8 @@ contract("test js", (accounts) => {
     });
   });
 
-  describe("Token", () => {
-    it("debería transferir tokens desde el spender al destinatario después de la aprobación", async () => {
+  describe("Proof into transferfrom method", () => {
+    it("Should transfer tokens from spender to recipient after approval", async () => {
       const transferAmount = 100;
       // El spender realiza la transferencia desde el owner al destinatario
       const result = await Token.transferFrom(
@@ -91,7 +91,6 @@ contract("test js", (accounts) => {
         { from: spender }
       );
       // Verifica que la transferencia sea exitosa
-      console.log(result.receipt);
       expect(result.receipt.status).to.equal(true);
 
       // Verifica que los balances se hayan actualizado correctamente
